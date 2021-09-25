@@ -4,6 +4,25 @@
   "difficulty": "Beginner",
   "time": "30",
   "details": {
+    "assets": {
+      "host01": [
+        {
+          "file": "k8s-install-1.21.sh",
+          "target": "/usr/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "upgrade.sh",
+          "target": "/usr/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "check",
+          "target": "/usr/bin/",
+          "chmod": "+x"
+        }
+      ]
+    },
     "steps": [
       {
         "title": "Step 1",
@@ -24,25 +43,7 @@
     "finish": {
       "text": "finish.md"
     },
-    "assets": {
-      "host01": [
-        {
-          "file": "k8s-install-1.21.sh",
-          "target": "/usr/bin/",
-          "chmod": "+x"
-        },
-        {
-          "file": "upgrade.sh",
-          "target": "/usr/bin/",
-          "chmod": "+x"
-        },
-        {
-          "file": "check",
-          "target": "/usr/bin/",
-          "chmod": "+x"
-        }
-      ]
-    },
+  
   "environment": {
     "uilayout": "terminal"
   },
