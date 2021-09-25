@@ -1,13 +1,16 @@
 {
-  "title": "18% Configuration",
-  "description": "* ConfigMaps * Security Contexts * resource * Secrets * ServiceAccounts",
+  "title": "test ckad prepare script",
+  "description": "none , with kubernete 1.21.4",
   "difficulty": "Intermediate",
   "time": "40",
   "details": {
     "steps": [
       {
         "title": "Step 1",
-        "text": "step1.md"
+        "text": "step1.md",
+        "foreground": "step1-foreground.sh",
+        "background": "step1-background.sh",
+        "answer": "step1-solution.md"
       },
       {
         "title": "Step 2",
