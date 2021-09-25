@@ -1,8 +1,8 @@
 {
-  "title": "18% Configuration",
-  "description": "* ConfigMaps * Security Contexts * resource * Secrets * ServiceAccounts",
+  "title": "test ckad perpare env",
+  "description": "add asset",
   "difficulty": "Intermediate",
-  "time": "40",
+  "time": "45",
   "details": {
     "steps": [
       {
