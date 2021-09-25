@@ -1,29 +1,18 @@
 {
-  "title": "13% - Core Concepts",
-  "description": "* Understanc Kubernetes API primitives * Create and configure basic Pods",
+  "title": "Core Concepts 001",
+  "description": "none , with kubernete 1.21.4",
   "difficulty": "Intermediate",
   "time": "40",
   "details": {
     "steps": [
       {
         "title": "Step 1",
-        "text": "step1.md"
+        "text": "step1.md",
+        "answer": "step1-solution.md"
       },
       {
         "title": "Step 2",
         "text": "step2.md"
-      },
-      {
-        "title": "Step 3",
-        "text": "step3.md"
-      },
-      {
-        "title": "Step 4",
-        "text": "step4.md"
-      },
-      {
-        "title": "Step 5",
-        "text": "step5.md"
       }
     ],
     "intro": {
@@ -32,24 +21,25 @@
     "finish": {
       "text": "finish.md"
     },
-  "assets": {
-    "host01": [
-      {
-        "file": "k8s-install-1.21.sh",
-        "target": "/usr/bin/",
-        "chmod": "+x"
-      },
-      {
-        "file": "upgrade.sh",
-        "target": "/usr/bin/",
-        "chmod": "+x"
-      },
-      {
-        "file": "check",
-        "target": "/usr/bin/",
-        "chmod": "+x"
-      }
-    ]
+    "assets": {
+      "host01": [
+        {
+          "file": "k8s-install-1.21.sh",
+          "target": "/usr/bin",
+          "chmod": "+x"
+        },
+        {
+          "file": "check",
+          "target": "/usr/bin",
+          "chmod": "+x"
+        },
+        {
+          "file": "upgrade.sh",
+          "target": "/usr/bin",
+          "chmod": "+x"
+        }
+      ]
+    }
   },
   "environment": {
     "uilayout": "terminal"
@@ -57,5 +47,4 @@
   "backend": {
     "imageid": "kubernetes-cluster-running:1.18"
   }
-}
 }
