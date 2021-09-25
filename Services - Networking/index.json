@@ -1,0 +1,69 @@
+{
+  "title": "13% Services & Networking",
+  "description": "* Services * NetworkPolicies",
+  "difficulty": "Intermediate",
+  "time": "40",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6",
+        "text": "step6.md"
+      },
+      {
+        "title": "Step 7",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "assets": {
+    "host01": [
+      {
+        "file": "k8s-install-1.21.sh",
+        "target": "/usr/bin/",
+        "chmod": "+x"
+      },
+      {
+        "file": "upgrade.sh",
+        "target": "/usr/bin/",
+        "chmod": "+x"
+      },
+      {
+        "file": "check",
+        "target": "/usr/bin/",
+        "chmod": "+x"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster:1.18"
+  }
+}
