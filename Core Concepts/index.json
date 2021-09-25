@@ -31,8 +31,7 @@
     },
     "finish": {
       "text": "finish.md"
-    }
-  },
+    },
   "assets": {
     "host01": [
       {
@@ -58,4 +57,5 @@
   "backend": {
     "imageid": "kubernetes-cluster-running:1.18"
   }
+}
 }

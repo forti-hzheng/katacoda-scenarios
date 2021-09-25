@@ -23,31 +23,31 @@
     },
     "finish": {
       "text": "finish.md"
-    }
-  },
-  "assets": {
-    "host01": [
-      {
-        "file": "k8s-install-1.21.sh",
-        "target": "/usr/bin/",
-        "chmod": "+x"
-      },
-      {
-        "file": "upgrade.sh",
-        "target": "/usr/bin/",
-        "chmod": "+x"
-      },
-      {
-        "file": "check",
-        "target": "/usr/bin/",
-        "chmod": "+x"
-      }
-    ]
-  },
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "k8s-install-1.21.sh",
+          "target": "/usr/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "upgrade.sh",
+          "target": "/usr/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "check",
+          "target": "/usr/bin/",
+          "chmod": "+x"
+        }
+      ]
+    },
   "environment": {
     "uilayout": "terminal"
   },
   "backend": {
     "imageid": "kubernetes-cluster:1.18"
   }
+}
 }
