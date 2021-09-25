@@ -1,5 +1,5 @@
 {
-  "title": "New CKAD -- base on Sep/2021 ",
+  "title": "CKAD 1.21.4 -- base on Curriculum Sep/2021 ",
   "description": "a simple ckad test bed",
   "difficulty": "Beginner",
   "time": "30",
@@ -25,10 +25,29 @@
       "text": "finish.md"
     }
   },
+  "assets": {
+    "host01": [
+      {
+        "file": "k8s-install-1.21.sh",
+        "target": "/usr/bin/",
+        "chmod": "+x"
+      },
+      {
+        "file": "upgrade.sh",
+        "target": "/usr/bin/",
+        "chmod": "+x"
+      },
+      {
+        "file": "check",
+        "target": "/usr/bin/",
+        "chmod": "+x"
+      }
+    ]
+  },
   "environment": {
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "kubernetes-cluster:1.18"
   }
 }
