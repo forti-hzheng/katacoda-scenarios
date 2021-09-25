@@ -27,17 +27,17 @@
       "host01": [
         {
           "file": "k8s-install-1.21.sh",
-          "target": "ckad-test\\assets",
+          "target": "/usr/bin",
           "chmod": "+x"
         },
         {
           "file": "check",
-          "target": "ckad-test\\assets",
+          "target": "/usr/bin",
           "chmod": "+x"
         },
         {
           "file": "upgrade.sh",
-          "target": "ckad-test\\assets",
+          "target": "/usr/bin",
           "chmod": "+x"
         }
       ]
