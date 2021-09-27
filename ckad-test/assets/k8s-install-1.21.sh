@@ -6,8 +6,10 @@ kubeadm config images pull --kubernetes-version 1.21.4 >>/tmp/master-upgrade.log
 # Install master dependencies
 curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
+
 apt-get update -y >>/tmp/master-upgrade.log 2>&1
 apt-get install -y kubectl=1.21.4-00 kubeadm=1.21.4-00 kubelet=1.22.4-00 >>/tmp/master-upgrade.log 2>&1
+apt-mark hold kubelet kubeadm kubectl
 
 # Install node dependencies
 ssh node01 'apt-get update -y &&  apt-get install -y kubelet=1.21.4-00 kubeadm=1.21.4-00' >/tmp/node-upgrade.log 2>&1 &

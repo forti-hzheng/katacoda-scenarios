@@ -8,11 +8,3 @@ echo Do NOT press continue until your environment is ready...
     sleep 1
   done
 echo Kubernetes started
-
-export do="--dry-run=client -o yaml"
-echo "set tabstop=2" >> ~/.vimrc
-echo "set expandtab" >> ~/.vimrc
-
-echo "use $do == --dry-run=client -o=yaml"
-
-complete -F __start_kubectl k

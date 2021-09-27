@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-
-# These tests were initially written in bash but due to some change in Katacoda, they stopped working.
-# Migrated those bash to a python script
-#
 import subprocess
 
 
@@ -22,41 +18,34 @@ def check_cmd(command, test):
 
 
 print("\nQuestion 1:")
-check_cmd("kubectl get deploy hoth -n planets -o jsonpath='{.spec.template.spec.containers[*].image}' | grep -q -w 'httpd:2.4.46'", "Deployment hoth uses httpd:2.4.46 image?")
-check_cmd("kubectl get deploy hoth -n planets -o jsonpath='{.status.readyReplicas}' | grep -q -w 4", "Deployment hoth has 4 running pods?")
+check_cmd("kubectl get po myredis -o jsonpath='{.spec.containers[*].livenessProbe.initialDelaySeconds}' | grep -q -w 5", "Container has liveness probe with initialDelaySeconds?")
+check_cmd("kubectl get po myredis -o jsonpath='{.spec.containers[*].livenessProbe.exec.command}' | grep -q -w 'redis-cli'", "Liveness probe contains correct command?")
+check_cmd("kubectl get po myredis -o jsonpath='{.spec.containers[*].readinessProbe.initialDelaySeconds}' | grep -q -w 5", "Container has readiness probe with initialDelaySeconds?")
+check_cmd("kubectl get po myredis -o jsonpath='{.spec.containers[*].readinessProbe.exec.command}' | grep -q -w 'PING'", "Readiness probe contains correct command?")
+check_cmd("kubectl get po myredis -o jsonpath='{.status.containerStatuses[0].ready}' | grep -q -w 'true'", "Pod is ready?")
 
 print("\nQuestion 2:")
 check_cmd(
-    "kubectl rollout status deploy yavin --timeout=1s", "Deployment yavin is rolled back?")
+    "kubectl get po httptest -o jsonpath='{.spec.containers[*].readinessProbe.httpGet.path}' | grep -q -w '/status/200'", "Pod has correct readyness probe defined?")
 check_cmd(
-    "kubectl apply -f /root/yavin.json --dry-run=client -o jsonpath='{.status.readyReplicas}' | grep -q -w 1", "File /root/yavin.json contains deployment spec in JSON?")
+    "kubectl get po httptest -o jsonpath='{.status.containerStatuses[0].ready}' | grep -q -w 'true'", "Pod is ready?")
 
 print("\nQuestion 3:")
 check_cmd(
-    "kubectl get hpa naboo -o jsonpath='{.spec.targetCPUUtilizationPercentage}' | grep -q -w 80", "HPA naboo scales at 80% CPU?")
+    "grep -q 'HOSTNAME=myenv' /root/myenv.log", "File /root/myenv.log has correct logs?")
 check_cmd(
-    "kubectl get hpa naboo -o jsonpath='{.spec.minReplicas}' | grep -q -w 2", "HPA naboo has 2 minimum replicas?")
-check_cmd(
-    "kubectl get hpa naboo -o jsonpath='{.spec.maxReplicas}' | grep -q -w 5", "HPA naboo has 5 maximum replicas?")
+    "if kubectl get po -o jsonpath='{.items[*].metadata.name}' | grep -q -w myenv ; then exit 1; fi", "Pod is deleted?")
 
 print("\nQuestion 4:")
 check_cmd(
-    "kubectl get cronjob bespin -o jsonpath='{.spec.schedule}' | grep -q -w '*/5 * * * *'", "Cronjob bespin is scheduled for every 5 min?")
+    "kubectl get po tatooine -o jsonpath='{.spec.containers[0]}' | grep -q -w 'sleep'", "Pod tatooine is fixed?")
 check_cmd(
-    "kubectl get cronjob bespin -o jsonpath='{.spec.jobTemplate.spec.template.spec.containers[*].command}' | grep -q -w 'date'", "Cronjob bespin is running with date command?")
+    "kubectl get po tatooine -o jsonpath='{.status.containerStatuses[0].ready}' | grep -q -w 'true'", "Pod tatooine is running?")
 
 print("\nQuestion 5:")
 check_cmd(
-    "kubectl get nodes node01 -o jsonpath={'.metadata.labels.shuttle'} | grep -q -w 'true'", "Correct label is applied on node01?")
-check_cmd(
-    "if kubectl get nodes node01 -o jsonpath={'.metadata.annotations'} | grep -q flagship; then exit 1; fi", "Correct annotation is removed from node01?")
+    "kubectl get po coruscant -o jsonpath='{.status.containerStatuses[0].ready}' | grep -q -w 'true'", "Pod coruscant is running?")
 
 print("\nQuestion 6:")
 check_cmd(
-    "grep -q -w 'anakin,busybox' /root/jedi-true.txt", "File /root/jedi-true.txt contains correct output?")
-check_cmd(
-    "grep -q -w 'luke,redis' /root/jedi-true.txt", "File /root/jedi-true.txt contains correct output?")
-check_cmd(
-    "grep -q -w 'padme,busybox' /root/jedi-true.txt", "File /root/jedi-true.txt contains correct output?")
-check_cmd(
-    "if grep -q -w 'han,busybox' /root/jedi-true.txt; then exit 1; fi", "File /root/jedi-true.txt contains correct output?")
+    "grep -q -w dagobah /root/high-cpu.yaml", "File /root/high-cpu.yaml contains name of pod with highest cpu usages?")
