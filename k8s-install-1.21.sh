@@ -1,4 +1,10 @@
 #!/bin/bash
+## Install new kubeadm
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" |sudo tee /etc/apt/sources.list.d/kubernetes.list 
+sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl 
+sudo apt-mark hold kubelet kubeadm kubectl
+
 
 # Pull image in background
 kubeadm config images pull --kubernetes-version 1.21.4 >>/tmp/master-upgrade.log 2>&1 &

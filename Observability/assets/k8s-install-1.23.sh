@@ -4,18 +4,18 @@
 curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
 apt-get update -y >>/tmp/master-upgrade.log 2>&1
-apt-get install -y kubectl=1.21.4-00 kubeadm=1.21.4-00 kubelet=1.21.4-00 >>/tmp/master-upgrade.log 2>&1
+apt-get install -y kubectl=1.23.5-00 kubeadm=1.23.5-00 kubelet=1.23.5-00 >>/tmp/master-upgrade.log 2>&1
 
 
 
 # Pull image in background
-kubeadm config images pull --kubernetes-version 1.21.4 >>/tmp/master-upgrade.log 2>&1 &
+kubeadm config images pull --kubernetes-version 1.23.5 >>/tmp/master-upgrade.log 2>&1 &
 
 # Install node dependencies
-ssh node01 'apt-get update -y &&  apt-get install -y kubelet=1.21.4-00 kubeadm=1.21.4-00' >/tmp/node-upgrade.log 2>&1 &
+ssh node01 'apt-get update -y &&  apt-get install -y kubelet=1.23.5-00 kubeadm=1.23.5-00' >/tmp/node-upgrade.log 2>&1 &
 
 # Install K8s
-kubeadm init --kubernetes-version=1.21.4 --pod-network-cidr=100.64.0.0/16 >>/tmp/master-upgrade.log 2>&1
+kubeadm init --kubernetes-version=1.23.5 --pod-network-cidr=100.64.0.0/16 >>/tmp/master-upgrade.log 2>&1
 
 ## Copy config
 mkdir -p $HOME/.kube >>/tmp/master-upgrade.log 2>&1
