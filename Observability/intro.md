@@ -12,4 +12,4 @@
 - You can view solutions by clicking **Show solution** button, however you are encouraged to use Kubernetes documentation to find answers instead.
 - Practice environment will be expired within 1 hour. Refresh to get new environment.
 
-[Feedback or Report Issues](mailto:liptanbiswas@gmail.com?subject=Katakoda%20CKAD%20Issue) | [Connect with me on Linkedin](https://www.linkedin.com/in/liptanbiswas/)
+[Feedback or Report Issues](mailto:forti.hzheng@gmail.com?subject=Katakoda%20CKAD_1.23%20Issue) | [Connect with me on Linkedin](https://www.linkedin.com/in/henry-zheng-1237782/)
