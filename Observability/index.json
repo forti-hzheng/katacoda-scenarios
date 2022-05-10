@@ -80,6 +80,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "kubernetes-cluster:1.18"
+    "imageid": "ubuntu:2004"
   }
 }
